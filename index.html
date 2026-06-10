@@ -79,6 +79,32 @@
 
     .rule { width: 40px; height: 1px; background: var(--line); margin: 0 auto; }
 
+    /* screenshots */
+    .shots {
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: 28px; flex-wrap: wrap;
+      padding: 64px 0 8px;
+    }
+    .shot {
+      width: min(260px, 78vw);
+      border-radius: 38px;
+      border: 6px solid var(--ink);
+      box-shadow: 0 24px 48px -24px rgba(31, 24, 20, 0.35);
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .shot img { display: block; width: 100%; height: auto; border-radius: 32px; }
+    @media (min-width: 880px) {
+      .shot:nth-child(2) { margin-top: -24px; }
+    }
+    .shots-caption {
+      text-align: center;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3);
+      padding-bottom: 8px;
+    }
+
     /* features */
     section { padding: 72px 0; }
     .features {
@@ -145,6 +171,15 @@
   </header>
 
   <div class="rule"></div>
+
+  <div class="wrap">
+    <div class="shots">
+      <div class="shot"><img src="./shots/beans.jpg" alt="Beans screen — your open bags with roast, caffeine, and last-shot verdicts" loading="lazy"></div>
+      <div class="shot"><img src="./shots/home.jpg" alt="Home screen — favourites, the active bean with freshness and dial-in progress, and a one-tap pull button"></div>
+      <div class="shot"><img src="./shots/newbag.jpg" alt="New bag screen — scan the bag's QR code or paste a product URL to fill in the details" loading="lazy"></div>
+    </div>
+    <p class="shots-caption">Real screens · iPhone &amp; iPad</p>
+  </div>
 
   <section class="wrap">
     <div class="features">
