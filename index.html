@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PullBook — the espresso dial-in companion</title>
+  <meta name="description" content="Track beans, log shots, assess taste, and get recipe adjustments as you work toward a dialled-in pull. For iPhone and iPad.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./icon-1024.png">
+  <meta property="og:title" content="PullBook — the espresso dial-in companion">
+  <meta property="og:description" content="Track beans, log shots, assess taste, and get recipe adjustments as you work toward a dialled-in pull.">
+  <meta property="og:image" content="https://pullbook.app/icon-1024.png">
+  <meta property="og:url" content="https://pullbook.app">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F5F0EB;
+      --card: #FBF8F4;
+      --ink: #1F1814;
+      --ink-2: #4A4039;
+      --ink-3: #8A7C70;
+      --line: #E3DAD0;
+      --crema: #C8855A;
+      --crema-deep: #9C6440;
+      --f-sans: "Geist", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      --f-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+      --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* hero */
+    header { padding: 96px 0 72px; text-align: center; }
+    .mark { width: 96px; height: 96px; margin: 0 auto 28px; }
+    .mark img { width: 100%; height: 100%; }
+    h1 {
+      font-size: clamp(44px, 8vw, 72px);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      font-weight: 500;
+    }
+    h1 .pull { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+    .tagline {
+      font-family: var(--f-serif); font-style: italic;
+      font-size: clamp(19px, 3vw, 24px);
+      color: var(--ink-2);
+      margin-top: 14px;
+    }
+    .sub {
+      max-width: 560px; margin: 18px auto 0;
+      color: var(--ink-3); font-size: 16px;
+    }
+    .cta {
+      display: inline-block; margin-top: 36px;
+      background: var(--ink); color: var(--paper);
+      text-decoration: none;
+      font-size: 16px; font-weight: 500;
+      padding: 14px 28px; border-radius: 999px;
+      transition: background .15s ease;
+    }
+    .cta:hover { background: var(--crema-deep); }
+    .cta-note {
+      margin-top: 12px;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .rule { width: 40px; height: 1px; background: var(--line); margin: 0 auto; }
+
+    /* features */
+    section { padding: 72px 0; }
+    .features {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px 24px;
+    }
+    .card .kicker {
+      font-family: var(--f-mono); font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--crema); margin-bottom: 10px;
+    }
+    .card h3 { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .card p { font-size: 14px; color: var(--ink-3); }
+
+    /* loop */
+    .loop { text-align: center; }
+    .loop h2 {
+      font-size: clamp(26px, 4.5vw, 34px); font-weight: 500; letter-spacing: -0.02em;
+    }
+    .loop h2 em { font-family: var(--f-serif); font-weight: 400; }
+    .steps {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+      margin-top: 28px;
+      font-family: var(--f-mono); font-size: 12px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2);
+    }
+    .steps span { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; }
+    .steps .arrow { border: none; background: none; color: var(--crema); padding: 8px 0; }
+    .loop p { max-width: 520px; margin: 24px auto 0; color: var(--ink-3); font-size: 15px; }
+
+    /* privacy strip */
+    .privacy {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      text-align: center; padding: 48px 0;
+    }
+    .privacy p {
+      font-family: var(--f-serif); font-style: italic;
+      font-size: clamp(18px, 3vw, 22px); color: var(--ink-2);
+      max-width: 620px; margin: 0 auto;
+    }
+
+    footer {
+      text-align: center; padding: 56px 0 64px;
+      color: var(--ink-3); font-size: 13px;
+    }
+    footer a { color: var(--ink-2); }
+  </style>
+</head>
+<body>
+
+  <header class="wrap">
+    <div class="mark"><img src="./mark.svg" alt="PullBook logo — a coffee drop"></div>
+    <h1><span class="pull">Pull</span>Book</h1>
+    <p class="tagline">The espresso dial-in companion.</p>
+    <p class="sub">Track beans, log shots, assess taste, and get one clear adjustment after every pull — until the recipe is dialled in.</p>
+    <a class="cta" href="mailto:rich.sharples@softwhere.org?subject=PullBook%20beta%20invite">Join the beta on TestFlight</a>
+    <div class="cta-note">iPhone &amp; iPad · free during beta</div>
+  </header>
+
+  <div class="rule"></div>
+
+  <section class="wrap">
+    <div class="features">
+      <div class="card">
+        <div class="kicker">Dial in</div>
+        <h3>One fix per shot</h3>
+        <p>Tell PullBook how the shot tasted and it recommends a single change — grind, dose, or yield — so you converge instead of guessing.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Bean shelf</div>
+        <h3>Know your bags</h3>
+        <p>Roast dates, freshness windows, process, and price per bag. Scan the QR code on the bag and the details fill themselves in.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Shot journal</div>
+        <h3>Every pull on record</h3>
+        <p>Doses, yields, shot times, and pre-infusion — with a live timer while you pull and your actual scale numbers after.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Taste</div>
+        <h3>Say how it tasted</h3>
+        <p>A simple taste wheel — sour to bitter, weak to strong — turns your palate into data the recommendation engine can use.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Sync</div>
+        <h3>iPhone ↔ iPad</h3>
+        <p>Your shelf and journal follow you between devices through iCloud. Nothing to set up, no account to create.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Learn</div>
+        <h3>Espresso, explained</h3>
+        <p>Built-in reference on extraction, freshness, roast levels, and why your shot tastes the way it does.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="loop wrap">
+    <h2>Pull. Taste. <em>Adjust.</em></h2>
+    <div class="steps">
+      <span>Pull</span><span class="arrow">→</span>
+      <span>Taste</span><span class="arrow">→</span>
+      <span>Adjust</span><span class="arrow">→</span>
+      <span>Dialled&nbsp;in</span>
+    </div>
+    <p>Most beans take a handful of shots to dial in. PullBook keeps the loop honest — each shot builds on the last, and when three in a row land, the recipe is yours.</p>
+  </section>
+
+  <div class="privacy">
+    <div class="wrap">
+      <p>No accounts. No tracking. Your shots live on your devices and your own iCloud — nowhere else.</p>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    © 2026 Rich Sharples · <a href="mailto:rich.sharples@softwhere.org">Contact</a> · <a href="https://github.com/richsharples/pullbook">GitHub</a>
+  </footer>
+
+</body>
+</html>

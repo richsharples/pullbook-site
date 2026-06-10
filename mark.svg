@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  
+  <defs>
+    <mask id="m">
+      <rect width="1024" height="1024" fill="#fff"></rect>
+      <path d="M 512 235.51999999999998 Q 675.84 450.56 675.84 593.92 A 163.84 163.84 0 1 1 348.15999999999997 593.92 Q 348.15999999999997 450.56 512 235.51999999999998 Z" fill="#000"></path>
+    </mask>
+  </defs>
+  <circle cx="512" cy="512" r="430.08" fill="#1F1814" mask="url(#m)"></circle>
+  <path d="M 512 296.96000000000004 Q 634.88 471.04 634.88 583.6800000000001 A 122.88 122.88 0 1 1 389.12 583.6800000000001 Q 389.12 471.04 512 296.96000000000004 Z" fill="#C8855A"></path>
+  <text x="512" y="583.6800000000001" text-anchor="middle" font-family="Geist, system-ui, -apple-system, &#39;Helvetica Neue&#39;, sans-serif" font-weight="600" font-size="163.84" fill="#1F1814" letter-spacing="-6.5536">P</text>
+</svg>
