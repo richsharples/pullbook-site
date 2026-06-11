@@ -1,0 +1,60 @@
+[
+  {
+    "version": "0.1.0-beta.13",
+    "build": 5,
+    "date": "2026-06-10",
+    "commit": "f520a731b7a404e1795ec23f58d4cdc0bccc9512",
+    "notes": [
+      "Taste and recommendation screens redesigned for iPad — a larger taste wheel and everything on one screen, no scrolling",
+      "The whole pull flow is now full-screen on iPad, matching the iPhone — no sidebar to tap mid-shot",
+      "The Pull button no longer scrolls away on the bean profile; bean info and stats stay on screen while the shot log scrolls",
+      "Dark mode fixes: the logo and the fix card now render correctly",
+      "Action buttons sit in the same place on every screen of the flow"
+    ]
+  },
+  {
+    "version": "0.1.0-beta.12",
+    "build": 4,
+    "date": "2026-06-10",
+    "commit": "bfd16b6747f2046e2c30724ab1540f97e66b7084",
+    "notes": [
+      "New Debug tools toggle under Settings → Advanced for beta testers",
+      "Delete test shots from History and the iPad shot log — two taps, no modal",
+      "Deleted shots stay deleted across devices instead of resurrecting on sync",
+      "Backup & restore and sync diagnostics now live behind the debug toggle"
+    ]
+  },
+  {
+    "version": "0.1.0-beta.11",
+    "build": 3,
+    "date": "2026-06-10",
+    "commit": "afab0aaf3c772da534e63f60d3596bbdb0577a92",
+    "notes": [
+      "Sync now merges your devices' data instead of letting the newest copy win — a recorded shot can never be erased by sync again",
+      "Bean deletions sync properly across devices",
+      "Export backup failures now show an error message instead of failing silently"
+    ]
+  },
+  {
+    "version": "0.1.0-beta.10",
+    "build": 2,
+    "date": "2026-06-10",
+    "commit": "77e1ab4f3083bc529cdf55537a4e74940a61346e",
+    "notes": [
+      "Fixed iCloud sync silently stopping once bag photos pushed the data over Apple's size limit — photos now stay on each device",
+      "Export backup now opens the iOS share sheet (it previously did nothing on iPhone and iPad)",
+      "Settings shows live iCloud sync status, including when something is wrong"
+    ]
+  },
+  {
+    "version": "0.1.0-beta.9",
+    "build": 1,
+    "date": "2026-06-09",
+    "commit": "7f5fd799bff19b44af8986d4b4459b5d52129f88",
+    "notes": [
+      "First TestFlight release — the espresso dial-in companion arrives as a native app for iPhone and iPad",
+      "A new name: 9Bar is now PullBook, with a refreshed logo and app icon",
+      "Beans and shots sync across your Apple devices through iCloud"
+    ]
+  }
+]
