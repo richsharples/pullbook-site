@@ -16,18 +16,20 @@ const formatDate = (iso) =>
 const esc = (s) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+// Newest release renders expanded; older ones collapse to version/build/date.
 const entries = releases
   .map(
-    (r) => `
-  <article class="release">
-    <div class="release-head">
+    (r, i) => `
+  <details class="release"${i === 0 ? " open" : ""}>
+    <summary>
       <h2>${esc(r.version)}</h2>
       <span class="mono meta">BUILD ${r.build} · ${formatDate(r.date).toUpperCase()}</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
 ${r.notes.map((n) => `      <li>${esc(n)}</li>`).join("\n")}
     </ul>
-  </article>`
+  </details>`
   )
   .join("\n");
 
@@ -59,12 +61,16 @@ const html = `<!doctype html>
     h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
     h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
     .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
-    .release { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; margin-bottom: 16px; }
-    .release-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .release { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 0 24px; margin-bottom: 16px; }
+    summary { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 20px 0; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
     h2 { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; }
-    .meta { font-size: 10px; letter-spacing: 0.12em; color: var(--ink-3); }
+    .meta { font-size: 10px; letter-spacing: 0.12em; color: var(--ink-3); margin-left: auto; }
+    .chev { width: 8px; height: 8px; border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3); transform: rotate(45deg) translateY(-2px); transition: transform 150ms; flex-shrink: 0; }
+    details[open] .chev { transform: rotate(225deg) translateY(-1px); }
+    details[open] summary { padding-bottom: 12px; }
     .mono { font-family: var(--f-mono); }
-    ul { padding-left: 18px; }
+    ul { padding: 0 0 20px 18px; }
     li { font-size: 14px; color: var(--ink-2); margin-bottom: 7px; }
     li::marker { color: var(--crema); }
     footer { text-align: center; color: var(--ink-3); font-size: 13px; padding-top: 32px; }

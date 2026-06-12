@@ -26,12 +26,16 @@
     h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
     h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
     .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
-    .release { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; margin-bottom: 16px; }
-    .release-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .release { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 0 24px; margin-bottom: 16px; }
+    summary { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 20px 0; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
     h2 { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; }
-    .meta { font-size: 10px; letter-spacing: 0.12em; color: var(--ink-3); }
+    .meta { font-size: 10px; letter-spacing: 0.12em; color: var(--ink-3); margin-left: auto; }
+    .chev { width: 8px; height: 8px; border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3); transform: rotate(45deg) translateY(-2px); transition: transform 150ms; flex-shrink: 0; }
+    details[open] .chev { transform: rotate(225deg) translateY(-1px); }
+    details[open] summary { padding-bottom: 12px; }
     .mono { font-family: var(--f-mono); }
-    ul { padding-left: 18px; }
+    ul { padding: 0 0 20px 18px; }
     li { font-size: 14px; color: var(--ink-2); margin-bottom: 7px; }
     li::marker { color: var(--crema); }
     footer { text-align: center; color: var(--ink-3); font-size: 13px; padding-top: 32px; }
@@ -46,11 +50,12 @@
       <p class="sub">Release notes for every PullBook beta, freshest first.</p>
     </header>
 
-  <article class="release">
-    <div class="release-head">
+  <details class="release" open>
+    <summary>
       <h2>0.1.0-beta.13</h2>
       <span class="mono meta">BUILD 5 · 10 JUNE 2026</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
       <li>Taste and recommendation screens redesigned for iPad — a larger taste wheel and everything on one screen, no scrolling</li>
       <li>The whole pull flow is now full-screen on iPad, matching the iPhone — no sidebar to tap mid-shot</li>
@@ -58,56 +63,60 @@
       <li>Dark mode fixes: the logo and the fix card now render correctly</li>
       <li>Action buttons sit in the same place on every screen of the flow</li>
     </ul>
-  </article>
+  </details>
 
-  <article class="release">
-    <div class="release-head">
+  <details class="release">
+    <summary>
       <h2>0.1.0-beta.12</h2>
       <span class="mono meta">BUILD 4 · 10 JUNE 2026</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
       <li>New Debug tools toggle under Settings → Advanced for beta testers</li>
       <li>Delete test shots from History and the iPad shot log — two taps, no modal</li>
       <li>Deleted shots stay deleted across devices instead of resurrecting on sync</li>
       <li>Backup &amp; restore and sync diagnostics now live behind the debug toggle</li>
     </ul>
-  </article>
+  </details>
 
-  <article class="release">
-    <div class="release-head">
+  <details class="release">
+    <summary>
       <h2>0.1.0-beta.11</h2>
       <span class="mono meta">BUILD 3 · 10 JUNE 2026</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
       <li>Sync now merges your devices' data instead of letting the newest copy win — a recorded shot can never be erased by sync again</li>
       <li>Bean deletions sync properly across devices</li>
       <li>Export backup failures now show an error message instead of failing silently</li>
     </ul>
-  </article>
+  </details>
 
-  <article class="release">
-    <div class="release-head">
+  <details class="release">
+    <summary>
       <h2>0.1.0-beta.10</h2>
       <span class="mono meta">BUILD 2 · 10 JUNE 2026</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
       <li>Fixed iCloud sync silently stopping once bag photos pushed the data over Apple's size limit — photos now stay on each device</li>
       <li>Export backup now opens the iOS share sheet (it previously did nothing on iPhone and iPad)</li>
       <li>Settings shows live iCloud sync status, including when something is wrong</li>
     </ul>
-  </article>
+  </details>
 
-  <article class="release">
-    <div class="release-head">
+  <details class="release">
+    <summary>
       <h2>0.1.0-beta.9</h2>
       <span class="mono meta">BUILD 1 · 9 JUNE 2026</span>
-    </div>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
     <ul>
       <li>First TestFlight release — the espresso dial-in companion arrives as a native app for iPhone and iPad</li>
       <li>A new name: 9Bar is now PullBook, with a refreshed logo and app icon</li>
       <li>Beans and shots sync across your Apple devices through iCloud</li>
     </ul>
-  </article>
+  </details>
     <footer>© 2026 Rich Sharples · <a href="./">pullbook.app</a></footer>
   </div>
 </body>
