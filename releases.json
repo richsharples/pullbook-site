@@ -1,7 +1,7 @@
 [
   {
     "version": "0.1.0-beta.14",
-    "build": 6,
+    "build": 7,
     "date": "2026-06-12",
     "commit": "8740ecb8014d8226bee4667ddef9847c0717b918",
     "notes": [
@@ -14,7 +14,7 @@
   },
   {
     "version": "0.1.0-beta.13",
-    "build": 5,
+    "build": 6,
     "date": "2026-06-10",
     "commit": "f520a731b7a404e1795ec23f58d4cdc0bccc9512",
     "notes": [
