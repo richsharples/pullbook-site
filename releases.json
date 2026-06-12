@@ -1,5 +1,18 @@
 [
   {
+    "version": "0.1.0-beta.14",
+    "build": 6,
+    "date": "2026-06-12",
+    "commit": "8740ecb8014d8226bee4667ddef9847c0717b918",
+    "notes": [
+      "Brew temperature is now tied to your machine: in expert mode, switch on \"Temperature control\" on the machine card in Settings (for PID or dual boiler machines) and set a default temp. If your machine can't adjust brew temp, temperature is hidden everywhere to keep things tidy.",
+      "Recipe temperature now follows your machine's default automatically. You can pin a specific temp for a bean from the pull setup screen, and setting it back to the default un-pins it.",
+      "Old auto-filled roast-level temps that you never actually chose have been cleared out, so your settings reflect only the temps you've deliberately picked.",
+      "Every shot now records the exact temperature it was pulled at, and temperature suggestions only appear when your machine can actually act on them.",
+      "Removed the \"That doesn't sound right\" button on the shot review screen — it never did anything. We'll bring back something useful here later."
+    ]
+  },
+  {
     "version": "0.1.0-beta.13",
     "build": 5,
     "date": "2026-06-10",
