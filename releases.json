@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.1.0-beta.14",
+    "build": 6,
+    "date": "2026-06-12",
+    "commit": "8740ecb8014d8226bee4667ddef9847c0717b918",
+    "notes": [
+      "Machine temperature control for expert mode — v0.1.0-beta.14",
+      "Automated changelog: publish release notes to pullbook.app"
+    ]
+  },
+  {
     "version": "0.1.0-beta.13",
     "build": 5,
     "date": "2026-06-10",
