@@ -1,5 +1,18 @@
 [
   {
+    "version": "0.1.0-beta.15",
+    "build": 8,
+    "date": "2026-06-21",
+    "commit": "47f365e10856a0aee9964dc1f48b05bfb4258a32",
+    "notes": [
+      "Returning users no longer get sent back through onboarding after an app update — the app now waits for your saved settings to load before deciding where to take you.",
+      "Added two new feedback buttons on the About page so you can report a bug or request a feature straight from a pre-filled email — no sign-in needed, and useful details about your device are attached automatically.",
+      "On the iPhone bean profile, the Pull button now sits directly below the recipe card so it's within reach without scrolling, and we've added extra space at the bottom so the floating tab bar no longer hides your content.",
+      "Fixed feedback emails so the attached diagnostics now display properly across mail apps like Gmail instead of being squashed onto one line.",
+      "Fixed an issue on iPad where bean profiles that inherit the machine's default brew temperature could fail to display correctly."
+    ]
+  },
+  {
     "version": "0.1.0-beta.14",
     "build": 7,
     "date": "2026-06-12",
