@@ -8,22 +8,33 @@
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #F5F0EB; --card: #FBF8F4; --ink: #1F1814; --ink-2: #4A4039;
-      --ink-3: #8A7C70; --line: #E3DAD0; --crema: #C8855A;
-      --f-sans: "Geist", system-ui, -apple-system, sans-serif;
-      --f-mono: "Geist Mono", ui-monospace, monospace;
-      --f-serif: "Instrument Serif", Georgia, serif;
+      --paper: #F5F0EB;
+      --card: #FBF8F4;
+      --ink: #1F1814;
+      --ink-2: #4A4039;
+      --ink-3: #8A7C70;
+      --line: #E3DAD0;
+      --crema: #C8855A;
+      --crema-deep: #9C6440;
+      --f-sans: "Geist", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      --f-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+      --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--f-sans); background: var(--paper); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px 72px; }
-    header { padding: 36px 0 40px; }
-    h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
-    h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
-    .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+
+    /* top nav */
     .navbar {
       position: sticky; top: 0; z-index: 20;
       background: rgba(245, 240, 235, 0.82);
@@ -49,6 +60,15 @@
     .navlinks a:hover { color: var(--crema); }
     .navlinks a[aria-current="page"] { color: var(--ink); }
 
+    /* footer */
+    footer { text-align: center; padding: 56px 0 64px; color: var(--ink-3); font-size: 13px; }
+    footer a { color: var(--ink-2); }
+
+    header { padding: 36px 0 40px; }
+    h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
+    h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+    .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
+
     /* rendered markdown */
     .md > *:first-child { margin-top: 0; }
     .md h1 { font-size: 26px; margin: 36px 0 14px; }
@@ -73,12 +93,10 @@
     .md th { background: var(--card); font-weight: 500; }
     .md hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
     .status { color: var(--ink-3); font-size: 14px; }
-
-    footer { text-align: center; color: var(--ink-3); font-size: 13px; padding-top: 40px; margin-top: 24px; }
-    footer a { color: var(--ink-2); }
   </style>
 </head>
 <body>
+
   <div class="navbar">
     <nav class="topnav wrap">
       <a class="brand" href="./">PullBook</a>
@@ -90,7 +108,8 @@
       </div>
     </nav>
   </div>
-  <div class="wrap">
+
+<div class="wrap">
     <header>
       <h1>The <span class="serif">road</span> ahead</h1>
       <p class="sub">Where PullBook is headed. Rough order, not a promise of dates.</p>
@@ -99,12 +118,14 @@
     <main id="content" class="md">
       <p class="status">Loading the roadmap&hellip;</p>
     </main>
-
-    <footer>© 2026 Rich Sharples · <a href="./">pullbook.app</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a></footer>
   </div>
 
-  <script src="./vendor/marked.min.js"></script>
-  <script>
+  <footer class="wrap">
+    © 2026 Rich Sharples · <a href="./roadmap.html">Roadmap</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a> · <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+  </footer>
+
+<script src="./vendor/marked.min.js"></script>
+<script>
     // Render roadmap.md (authored in the GitHub web editor) into the page.
     (function () {
       var target = document.getElementById('content');
@@ -123,6 +144,7 @@
             'or <a href="mailto:rich.sharples@softwhere.org">drop me a line</a>.</p>';
         });
     })();
-  </script>
+</script>
+
 </body>
 </html>
