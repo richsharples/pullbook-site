@@ -1,2 +1,5 @@
 # macOS Finder metadata
 .DS_Store
+
+# Raw screen-recording sources (encoded .mp4s are committed instead)
+shots/*.mov
