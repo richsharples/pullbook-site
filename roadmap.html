@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap — PullBook</title>
+  <meta name="description" content="Where PullBook is headed — what we're building next.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F5F0EB; --card: #FBF8F4; --ink: #1F1814; --ink-2: #4A4039;
+      --ink-3: #8A7C70; --line: #E3DAD0; --crema: #C8855A;
+      --f-sans: "Geist", system-ui, -apple-system, sans-serif;
+      --f-mono: "Geist Mono", ui-monospace, monospace;
+      --f-serif: "Instrument Serif", Georgia, serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--f-sans); background: var(--paper); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px 72px; }
+    header { padding: 64px 0 40px; }
+    .home { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); text-decoration: none; }
+    .home:hover { color: var(--crema); }
+    h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
+    h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+    .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
+
+    /* rendered markdown */
+    .md > *:first-child { margin-top: 0; }
+    .md h1 { font-size: 26px; margin: 36px 0 14px; }
+    .md h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; margin: 34px 0 12px; }
+    .md h3 { font-size: 16px; font-weight: 500; margin: 26px 0 10px; }
+    .md p { font-size: 15px; color: var(--ink-2); margin: 12px 0; }
+    .md strong { color: var(--ink); font-weight: 500; }
+    .md em { font-family: var(--f-serif); font-style: italic; }
+    .md a { color: var(--crema); }
+    .md ul, .md ol { padding: 4px 0 8px 20px; }
+    .md li { font-size: 15px; color: var(--ink-2); margin-bottom: 8px; }
+    .md li::marker { color: var(--crema); }
+    .md ul.contains-task-list { list-style: none; padding-left: 2px; }
+    .md .task-list-item { display: flex; align-items: baseline; gap: 10px; }
+    .md .task-list-item input { accent-color: var(--crema); margin-top: 2px; }
+    .md blockquote { border-left: 3px solid var(--line); padding: 2px 0 2px 16px; margin: 16px 0; color: var(--ink-3); }
+    .md code { font-family: var(--f-mono); font-size: 0.88em; background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+    .md pre { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+    .md pre code { background: none; border: 0; padding: 0; }
+    .md table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+    .md th, .md td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+    .md th { background: var(--card); font-weight: 500; }
+    .md hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+    .status { color: var(--ink-3); font-size: 14px; }
+
+    footer { text-align: center; color: var(--ink-3); font-size: 13px; padding-top: 40px; margin-top: 24px; }
+    footer a { color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="home" href="./">&#8249; pullbook.app</a>
+      <h1>The <span class="serif">road</span> ahead</h1>
+      <p class="sub">Where PullBook is headed. Rough order, not a promise of dates.</p>
+    </header>
+
+    <main id="content" class="md">
+      <p class="status">Loading the roadmap&hellip;</p>
+    </main>
+
+    <footer>© 2026 Rich Sharples · <a href="./">pullbook.app</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a></footer>
+  </div>
+
+  <script src="./vendor/marked.min.js"></script>
+  <script>
+    // Render roadmap.md (authored in the GitHub web editor) into the page.
+    (function () {
+      var target = document.getElementById('content');
+      fetch('./roadmap.md', { cache: 'no-cache' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.text();
+        })
+        .then(function (md) {
+          marked.use({ gfm: true, breaks: true });
+          target.innerHTML = marked.parse(md);
+        })
+        .catch(function () {
+          target.innerHTML =
+            '<p class="status">Couldn’t load the roadmap right now — please try again later, ' +
+            'or <a href="mailto:rich.sharples@softwhere.org">drop me a line</a>.</p>';
+        });
+    })();
+  </script>
+</body>
+</html>
