@@ -20,9 +20,31 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: var(--f-sans); background: var(--paper); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
     .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px 72px; }
-    header { padding: 64px 0 40px; }
-    .home { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); text-decoration: none; }
-    .home:hover { color: var(--crema); }
+    header { padding: 36px 0 40px; }
+    .navbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(245, 240, 235, 0.82);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px 24px; flex-wrap: wrap;
+      padding-top: 14px; padding-bottom: 14px;
+    }
+    .topnav .brand {
+      font-family: var(--f-mono); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.02em; color: var(--ink); text-decoration: none;
+    }
+    .navlinks { display: flex; gap: 22px; flex-wrap: wrap; }
+    .navlinks a {
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-3); text-decoration: none;
+      transition: color .15s ease;
+    }
+    .navlinks a:hover { color: var(--crema); }
+    .navlinks a[aria-current="page"] { color: var(--ink); }
     h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
     h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
     .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
@@ -43,9 +65,19 @@
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <nav class="topnav wrap">
+      <a class="brand" href="./">PullBook</a>
+      <div class="navlinks">
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./changelog.html" aria-current="page">Changelog</a>
+        <a href="./feedback.html">Feedback</a>
+        <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+      </div>
+    </nav>
+  </div>
   <div class="wrap">
     <header>
-      <a class="home" href="./">&#8249; pullbook.app</a>
       <h1>What's <span class="serif">new</span></h1>
       <p class="sub">Release notes for every PullBook beta, freshest first.</p>
     </header>
@@ -147,7 +179,7 @@
       <li>Beans and shots sync across your Apple devices through iCloud</li>
     </ul>
   </details>
-    <footer>© 2026 Rich Sharples · <a href="./">pullbook.app</a></footer>
+    <footer>© 2026 Rich Sharples · <a href="./">pullbook.app</a> · <a href="./roadmap.html">Roadmap</a> · <a href="./feedback.html">Feedback</a></footer>
   </div>
 </body>
 </html>
