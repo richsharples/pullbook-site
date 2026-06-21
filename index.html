@@ -40,8 +40,26 @@
     }
     .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
+    /* top nav */
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px 24px; flex-wrap: wrap;
+      padding-top: 24px; padding-bottom: 24px;
+    }
+    .topnav .brand {
+      font-family: var(--f-mono); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.02em; color: var(--ink); text-decoration: none;
+    }
+    .navlinks { display: flex; gap: 22px; flex-wrap: wrap; }
+    .navlinks a {
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-3); text-decoration: none;
+      transition: color .15s ease;
+    }
+    .navlinks a:hover { color: var(--crema); }
+
     /* hero */
-    header { padding: 96px 0 72px; text-align: center; }
+    header { padding: 48px 0 72px; text-align: center; }
     .mark { width: 96px; height: 96px; margin: 0 auto 28px; }
     .mark img { width: 100%; height: 100%; }
     h1 {
@@ -160,6 +178,16 @@
   </style>
 </head>
 <body>
+
+  <nav class="topnav wrap">
+    <a class="brand" href="./">PullBook</a>
+    <div class="navlinks">
+      <a href="./roadmap.html">Roadmap</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./feedback.html">Feedback</a>
+      <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+    </div>
+  </nav>
 
   <header class="wrap">
     <div class="mark"><img src="./mark.svg" alt="PullBook logo — a coffee drop"></div>
