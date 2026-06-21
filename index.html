@@ -174,9 +174,9 @@
 
   <div class="wrap">
     <div class="shots">
-      <div class="shot"><img src="./shots/home.jpg" alt="Home screen — favourites, the active bean with freshness and dial-in progress, and a one-tap pull button" loading="lazy"></div>
-      <div class="shot"><video src="./shots/PullBook.mp4" poster="./shots/pullbook-poster.jpg" autoplay muted loop playsinline aria-label="PullBook in action — pulling a shot and logging the result"></video></div>
-      <div class="shot"><img src="./shots/beans.jpg" alt="Beans screen — your open bags with roast, caffeine, and last-shot verdicts" loading="lazy"></div>
+      <div class="shot"><video src="./shots/shot.mp4" poster="./shots/shot-poster.jpg" muted loop playsinline preload="metadata" aria-label="Pulling a shot and watching the timer"></video></div>
+      <div class="shot"><video src="./shots/PullBook.mp4" poster="./shots/pullbook-poster.jpg" muted loop playsinline preload="metadata" aria-label="PullBook in action — pulling a shot and logging the result"></video></div>
+      <div class="shot"><video src="./shots/log-book.mp4" poster="./shots/log-book-poster.jpg" muted loop playsinline preload="metadata" aria-label="The log book — browsing your shot history"></video></div>
     </div>
     <p class="shots-caption">Real screens · iPhone &amp; iPad</p>
   </div>
@@ -236,6 +236,29 @@
   <footer class="wrap">
     © 2026 Rich Sharples · <a href="./changelog.html">Changelog</a> · <a href="mailto:rich.sharples@softwhere.org">Contact</a>
   </footer>
+
+  <script>
+    // Play the screen recordings on hover; pause and reset when the cursor leaves.
+    // Devices that can't hover (touch) just autoplay, unless the user prefers reduced motion.
+    (function () {
+      var videos = document.querySelectorAll('.shot video');
+      var canHover = window.matchMedia('(hover: hover)').matches;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!canHover) {
+        if (!reduceMotion) {
+          videos.forEach(function (v) { v.play().catch(function () {}); });
+        }
+        return;
+      }
+
+      videos.forEach(function (v) {
+        var tile = v.closest('.shot');
+        tile.addEventListener('mouseenter', function () { v.play().catch(function () {}); });
+        tile.addEventListener('mouseleave', function () { v.pause(); v.currentTime = 0; });
+      });
+    })();
+  </script>
 
 </body>
 </html>
