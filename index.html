@@ -93,7 +93,7 @@
       overflow: hidden;
       background: var(--ink);
     }
-    .shot img { display: block; width: 100%; height: auto; border-radius: 32px; }
+    .shot img, .shot video { display: block; width: 100%; height: auto; border-radius: 32px; }
     @media (min-width: 880px) {
       .shot:nth-child(2) { margin-top: -24px; }
     }
@@ -174,9 +174,9 @@
 
   <div class="wrap">
     <div class="shots">
+      <div class="shot"><img src="./shots/home.jpg" alt="Home screen — favourites, the active bean with freshness and dial-in progress, and a one-tap pull button" loading="lazy"></div>
+      <div class="shot"><video src="./shots/PullBook.mp4" poster="./shots/pullbook-poster.jpg" autoplay muted loop playsinline aria-label="PullBook in action — pulling a shot and logging the result"></video></div>
       <div class="shot"><img src="./shots/beans.jpg" alt="Beans screen — your open bags with roast, caffeine, and last-shot verdicts" loading="lazy"></div>
-      <div class="shot"><img src="./shots/home.jpg" alt="Home screen — favourites, the active bean with freshness and dial-in progress, and a one-tap pull button"></div>
-      <div class="shot"><img src="./shots/newbag.jpg" alt="New bag screen — scan the bag's QR code or paste a product URL to fill in the details" loading="lazy"></div>
     </div>
     <p class="shots-caption">Real screens · iPhone &amp; iPad</p>
   </div>
