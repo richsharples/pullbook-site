@@ -1,7 +1,7 @@
 
 **SHORT TERM**
 
-**BIG** : Integrate with smart scales (Half Decent is the first target) - this removes the need for the user to manually shadow what the scale / machine is doing.
+**BIG** : Integrate with smart scales (Half Decent is the first target) - this removes the need for the user to manually shadow what the scale / machine is doing. (done in beta 16 / build 9)
 
 **SMALL** : Better organizing / sorting of shots
 
