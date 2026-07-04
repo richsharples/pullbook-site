@@ -174,6 +174,21 @@ const pages = [
     nav: "feedback",
     doc: true,
   },
+  {
+    out: "scales.html",
+    title: "Smart scale support — PullBook",
+    description:
+      "PullBook now connects to smart scales — starting with the Half Decent scale. Live weight while you pull, yields captured automatically.",
+    nav: "scales",
+    doc: true,
+    headExtra: [
+      '  <meta property="og:title" content="PullBook now talks to your scale">',
+      '  <meta property="og:description" content="Smart scale support, starting with the Half Decent scale. Live weight while you pull, yields captured automatically.">',
+      '  <meta property="og:image" content="https://i.ytimg.com/vi/vV0lA1qD4v8/hqdefault.jpg">',
+      '  <meta property="og:url" content="https://pullbook.app/scales.html">',
+      '  <meta property="og:type" content="website">',
+    ].join("\n"),
+  },
 ];
 
 export function buildChangelog() {

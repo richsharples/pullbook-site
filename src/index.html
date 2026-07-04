@@ -3,6 +3,17 @@
 
     /* hero */
     header { padding: 48px 0 72px; text-align: center; }
+    .announce {
+      display: inline-block; margin-bottom: 28px;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-2); text-decoration: none;
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+      padding: 7px 16px;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .announce:hover { color: var(--crema-deep); border-color: var(--crema); }
+    .announce .tag { color: var(--crema); }
     .mark { width: 96px; height: 96px; margin: 0 auto 28px; }
     .mark img { width: 100%; height: 100%; }
     h1 {
@@ -115,6 +126,7 @@
 </style>
 
   <header class="wrap">
+    <a class="announce" href="./scales.html"><span class="tag">New</span> · PullBook now talks to your scale →</a>
     <div class="mark"><img src="./mark.svg" alt="PullBook logo — a coffee drop"></div>
     <h1><span class="pull">Pull</span>Book</h1>
     <p class="tagline">The espresso dial-in companion.</p>

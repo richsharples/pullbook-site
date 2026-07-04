@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart scale support — PullBook</title>
+  <meta name="description" content="PullBook now connects to smart scales — starting with the Half Decent scale. Live weight while you pull, yields captured automatically.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <meta property="og:title" content="PullBook now talks to your scale">
+  <meta property="og:description" content="Smart scale support, starting with the Half Decent scale. Live weight while you pull, yields captured automatically.">
+  <meta property="og:image" content="https://i.ytimg.com/vi/vV0lA1qD4v8/hqdefault.jpg">
+  <meta property="og:url" content="https://pullbook.app/scales.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F5F0EB;
+      --card: #FBF8F4;
+      --ink: #1F1814;
+      --ink-2: #4A4039;
+      --ink-3: #8A7C70;
+      --line: #E3DAD0;
+      --crema: #C8855A;
+      --crema-deep: #9C6440;
+      --f-sans: "Geist", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      --f-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+      --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+
+    /* top nav */
+    .navbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(245, 240, 235, 0.82);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px 24px; flex-wrap: wrap;
+      padding-top: 14px; padding-bottom: 14px;
+    }
+    .topnav .brand {
+      font-family: var(--f-mono); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.02em; color: var(--ink); text-decoration: none;
+    }
+    .navlinks { display: flex; gap: 22px; flex-wrap: wrap; }
+    .navlinks a {
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-3); text-decoration: none;
+      transition: color .15s ease;
+    }
+    .navlinks a:hover { color: var(--crema); }
+    .navlinks a[aria-current="page"] { color: var(--ink); }
+
+    /* footer */
+    footer { text-align: center; padding: 56px 0 64px; color: var(--ink-3); font-size: 13px; }
+    footer a { color: var(--ink-2); }
+
+    header { padding: 36px 0 40px; }
+    h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 500; letter-spacing: -0.02em; margin-top: 18px; }
+    h1 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+    .sub { color: var(--ink-3); font-size: 15px; margin-top: 8px; }
+
+    /* video embed */
+    .video-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: 8px; margin-bottom: 12px;
+    }
+    .video-frame {
+      position: relative; aspect-ratio: 16 / 9;
+      border-radius: 12px; overflow: hidden; background: var(--ink);
+    }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .facade {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: block; padding: 0; border: 0; cursor: pointer; background: var(--ink);
+    }
+    .facade img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity .15s ease; }
+    .facade:hover img { opacity: 1; }
+    .facade .play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 68px; height: 68px; border-radius: 50%;
+      background: rgba(31, 24, 20, 0.82);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s ease;
+    }
+    .facade:hover .play { background: var(--crema-deep); }
+    .facade .play svg { width: 26px; height: 26px; margin-left: 5px; fill: var(--paper); }
+    .video-caption {
+      text-align: center;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 40px;
+    }
+
+    /* prose */
+    .prose h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; margin: 34px 0 12px; }
+    .prose p { font-size: 15px; color: var(--ink-2); margin: 12px 0; }
+    .prose strong { color: var(--ink); font-weight: 500; }
+    .prose em { font-family: var(--f-serif); font-style: italic; }
+    .prose a { color: var(--crema); }
+    .prose ul { padding: 4px 0 8px 20px; }
+    .prose li { font-size: 15px; color: var(--ink-2); margin-bottom: 8px; }
+    .prose li::marker { color: var(--crema); }
+
+    /* call to action */
+    .cta-row { text-align: center; margin-top: 48px; }
+    .cta {
+      display: inline-block;
+      background: var(--ink); color: var(--paper);
+      text-decoration: none;
+      font-size: 16px; font-weight: 500;
+      padding: 14px 28px; border-radius: 999px;
+      transition: background .15s ease;
+    }
+    .cta:hover { background: var(--crema-deep); }
+    .cta-note {
+      margin-top: 12px;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .cta-note a { color: var(--ink-2); }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <nav class="topnav wrap">
+      <a class="brand" href="./">PullBook</a>
+      <div class="navlinks">
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./changelog.html">Changelog</a>
+        <a href="./feedback.html">Feedback</a>
+        <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+<div class="wrap">
+    <header>
+      <h1>Your scale, <span class="serif">connected</span></h1>
+      <p class="sub">The latest beta pairs PullBook with smart scales — starting with the Half Decent scale.</p>
+    </header>
+
+    <div class="video-card">
+      <div class="video-frame" style="aspect-ratio: 4 / 3">
+        <button class="facade" data-video-id="3yCOFSLwCvM"
+                data-video-title="PullBook bluetooth pairing with Half Decent Scale"
+                aria-label="Play the pairing and dosing demo video">
+          <img src="https://i.ytimg.com/vi/3yCOFSLwCvM/sddefault.jpg"
+               alt="Pairing PullBook with the scale over Bluetooth and weighing the dose — demo video"
+               loading="lazy"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/3yCOFSLwCvM/hqdefault.jpg'">
+          <span class="play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3.5v17l14-8.5z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <p class="video-caption">Pairing the scale &amp; weighing the dose</p>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <button class="facade" data-video-id="vV0lA1qD4v8"
+                data-video-title="PullBook smart scale integration — demo"
+                aria-label="Play the shot-pulling demo video">
+          <img src="https://i.ytimg.com/vi/vV0lA1qD4v8/sddefault.jpg"
+               alt="PullBook connected to a smart scale — demo video"
+               loading="lazy"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/vV0lA1qD4v8/hqdefault.jpg'">
+          <span class="play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3.5v17l14-8.5z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <p class="video-caption">Pulling a shot</p>
+
+    <main class="prose">
+      <h2>No more shadowing the scale</h2>
+      <p>Until now, pulling a shot meant working two devices at once — one eye on the scale, one thumb in the app, copying numbers across before the crema settled. This release removes the middleman: PullBook connects to your scale directly, and the numbers come to you.</p>
+
+      <h2>What's new</h2>
+      <ul>
+        <li><strong>Pair once, forget it.</strong> PullBook finds your scale over Bluetooth and reconnects automatically the next time you brew.</li>
+        <li><strong>Live weight while you pull.</strong> The shot screen mirrors the scale in real time, so you can watch the yield climb without looking away.</li>
+        <li><strong>Yields captured automatically.</strong> Your final weight lands on the shot record by itself — no typing, no rounding, no guessing.</li>
+        <li><strong>The loop stays the same.</strong> Taste it, get one fix, pull again — just with fewer manual steps between shots.</li>
+      </ul>
+
+      <h2>Supported scales</h2>
+      <p>We're starting with the <strong>Half Decent scale</strong>, with more to follow. Got a scale you'd like PullBook to talk to next? <a href="./feedback.html">Tell us on the feedback page</a>.</p>
+    </main>
+
+    <div class="cta-row">
+      <a class="cta" href="https://forms.gle/MYc4ny6iVCB9JhwVA">Join the beta on TestFlight</a>
+      <div class="cta-note">Already on the beta? Update in TestFlight · <a href="./changelog.html">full release notes</a></div>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    © 2026 Rich Sharples · <a href="./roadmap.html">Roadmap</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a> · <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+  </footer>
+
+<script>
+    // Swap each poster for the real YouTube player on demand, so the page loads
+    // nothing from YouTube until someone presses play.
+    (function () {
+      document.querySelectorAll('.facade').forEach(function (facade) {
+        facade.addEventListener('click', function () {
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + facade.dataset.videoId + '?autoplay=1&rel=0';
+          iframe.title = facade.dataset.videoTitle;
+          iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          iframe.setAttribute('allowfullscreen', '');
+          facade.parentNode.replaceChild(iframe, facade);
+        });
+      });
+    })();
+</script>
+
+</body>
+</html>
