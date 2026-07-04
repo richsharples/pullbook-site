@@ -3,6 +3,10 @@
     "version": "0.1.0-beta.16",
     "build": 9,
     "date": "2026-07-04",
+    "link": {
+      "href": "./scales.html",
+      "text": "See the smart scale integration in action"
+    },
     "commit": "76b96d40394ebe3a713c96bf0cafe90e1fc72280",
     "notes": [
       "Experimental Bluetooth scale support (for the Half Decent Scale) is now available for testers who turn on debug tools — see live shot weight during your pull, tare/zero manually, and try a new weigh-in screen for dialling in your dose before grinding. Note it stays hidden for everyone else for now.",

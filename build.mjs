@@ -82,7 +82,11 @@ const renderReleases = () => {
     </summary>
     <ul>
 ${r.notes.map((n) => `      <li>${esc(n)}</li>`).join("\n")}
-    </ul>
+    </ul>${
+      r.link
+        ? `\n    <p class="release-link"><a href="${esc(r.link.href)}">${esc(r.link.text)} &rarr;</a></p>`
+        : ""
+    }
   </details>`
     )
     .join("\n\n");
