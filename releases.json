@@ -1,5 +1,18 @@
 [
   {
+    "version": "0.1.0-beta.16",
+    "build": 9,
+    "date": "2026-07-04",
+    "commit": "76b96d40394ebe3a713c96bf0cafe90e1fc72280",
+    "notes": [
+      "Experimental Bluetooth scale support (for the Half Decent Scale) is now available for testers who turn on debug tools — see live shot weight during your pull, tare/zero manually, and try a new weigh-in screen for dialling in your dose before grinding. Note it stays hidden for everyone else for now.",
+      "You can now add a bag photo from your camera or photo library right from the bean edit screen, not just when scanning a new bag.",
+      "Fixed a startup hang where the app could get stuck on a blank brown screen and never load.",
+      "On iPad, the Home favourites shelf now wraps to show all your starred beans in landscape instead of cutting them off behind a sideways scroll.",
+      "Fixed unreadable stats (Total shots and Avg time) on the iPad bean profile in dark mode."
+    ]
+  },
+  {
     "version": "0.1.0-beta.15",
     "build": 8,
     "date": "2026-06-21",
