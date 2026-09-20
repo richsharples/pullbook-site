@@ -1,5 +1,18 @@
 [
   {
+    "version": "0.1.0-beta.17",
+    "build": 10,
+    "date": "2026-09-20",
+    "commit": "1b7ad9add79cf86537434aaec11de0056814d7a9",
+    "notes": [
+      "Your Bluetooth scale now stays connected throughout the whole session — across screen changes, pauses and even the phone locking. If the link drops it quietly reconnects on its own, without ever popping up the pairing picker, and the screen stays awake during a scale-driven pull.",
+      "The live scale reading now sits right under the dose and yield controls on the setup screen, next to the numbers you're adjusting. The separate weigh screen is gone.",
+      "The pull dial now splits at first drop: pre-infusion shows in a muted colour so there's nothing in the cup yet, then switches to the usual crema-to-bitter colours once coffee starts flowing. A scale-detected drop splits the dial automatically.",
+      "When your scale is reconnecting, the Pull screen shows an amber scale chip and Settings names the scale it's reconnecting to, so you can tell 'quietly recovering' from 'not connected'.",
+      "Every screen now follows your light or dark setting properly — light mode no longer flips to dark the moment a pull starts. The pull, taste and recommend screens now stay dark together as one continuous stretch at the machine."
+    ]
+  },
+  {
     "version": "0.1.0-beta.16",
     "build": 9,
     "date": "2026-07-04",
