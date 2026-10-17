@@ -53,7 +53,7 @@ const nav = (current) => {
 
 const footer = () =>
   `  <footer class="wrap">
-    © ${new Date().getUTCFullYear()} Rich Sharples · <a href="./roadmap.html">Roadmap</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a> · <a href="mailto:rich.sharples@softwhere.org">Contact</a>
+    © ${new Date().getUTCFullYear()} Rich Sharples · <a href="./roadmap.html">Roadmap</a> · <a href="./changelog.html">Changelog</a> · <a href="./feedback.html">Feedback</a> · <a href="./privacy.html">Privacy</a> · <a href="mailto:rich.sharples@softwhere.org">Contact</a>
   </footer>`;
 
 // --- changelog body ------------------------------------------------------
