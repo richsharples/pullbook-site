@@ -1,5 +1,18 @@
 [
   {
+    "version": "1.0.0",
+    "build": 14,
+    "date": "2026-11-02",
+    "notes": [
+      "PullBook 1.0 is out on the App Store — free for iPhone and iPad.",
+      "Bluetooth scale support is now on for everyone. Connect your scale and see live weight during the pull without any manual tracking.",
+      "The app now launches correctly on iOS 27.",
+      "A crash screen now recovers properly — tap to restart and you land where you left off rather than on a blank screen.",
+      "When your scale won't connect, the app says something useful instead of going silent.",
+      "Backup, sync detail, and shot deletion have moved from debug-only to Expert mode, available to anyone who wants them."
+    ]
+  },
+  {
     "version": "0.1.0-beta.17",
     "build": 10,
     "date": "2026-09-20",

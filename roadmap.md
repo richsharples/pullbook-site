@@ -7,6 +7,6 @@
 
 **SMALL** : Resolve outstanding beta feedback
 
-**MEDIUM** : Release free version to the AppStore
+**MEDIUM** : ~~Release free version to the AppStore~~ (done — 1.0 approved Nov 2026)
 
 **BIG** : Android or convert to iOS native decision.
