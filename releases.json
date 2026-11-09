@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.0.1",
+    "build": 18,
+    "date": "2026-11-09",
+    "commit": "dcbc5c77fe1193ef69ac6c0110efac21df75d241",
+    "notes": [
+      "When your scale drops out mid-shot, the Pull screen now holds your last reading, shows \"Reconnecting…\", and keeps yield tracking and auto-stop running across the gap — so a brief Bluetooth blip no longer looks like a dropped scale or causes an overshoot.",
+      "If reconnection does give up, the scale card now stays put and the Zero button becomes a Reconnect button, so you can get back on the scale without digging into Settings.",
+      "Scales paired for the first time now reconnect properly after being switched off and on, even without relaunching the app.",
+      "When connecting a scale doesn't work, you'll now see plain-language messages (Bluetooth off, permission needed, scale not found, and so on) instead of cryptic technical text — and simply closing the Bluetooth picker is no longer treated as an error.",
+      "New beans now start from the Default grind you set in Settings, nudged finer or coarser for the roast, and the grind is shown on the confirmation step alongside dose, yield and time.",
+      "Grind suggestions no longer tell you to move past the ends of your dial — at the limit it now says you're already at the finest setting rather than giving an impossible instruction.",
+      "Long bean names on the Pull button now trim neatly with an ellipsis instead of being clipped off.",
+      "If PullBook ever hits an error on launch, the crash screen's recovery buttons now reliably restart the app, and tell you clearly if a problem keeps recurring."
+    ]
+  },
+  {
     "version": "1.0.0",
     "build": 14,
     "date": "2026-11-02",
